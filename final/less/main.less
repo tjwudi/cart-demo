@@ -1,0 +1,173 @@
+@import "normalize";
+@import "variables";
+@import "mixin";
+
+/**
+ * 字体重置（note: 页面负荷加大）
+ */
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/**
+ *  浏览器过期错误提示
+ */
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/**
+ * 外围容器
+ */
+.container {
+  padding: 40px;
+}
+
+/**
+ * 下拉菜单样式
+ */
+
+.dropdown {
+  position: relative;
+  width: 365px;
+  padding: 0px 12px;
+  color: @font-base;
+
+  .drop-shadow(0, 0, 50px, 0px, 0.2);
+  border: 1px solid mix(white, gray, 80%);
+  
+  &:before {  /* 上三角形 note: 为兼容IE8只使用单引号 */
+    top: -20px;
+    left: 335px;
+    .triangle();
+  }
+
+  .header {
+    margin: 9px 0px;
+  }
+
+  .body {
+    position: relative;
+    height: 350px;
+    overflow-y: scroll;
+
+    /* .cart-list */
+  }
+
+  .footer {
+    position: relative;
+    padding: 0 12px;
+    left: -12px;
+    height: 60px; 
+    line-height: 60px;
+    width: 365px;
+    background-color: @footer-primary;
+    font-size: 13px;
+
+    .price {
+      font-size: 18pt;
+      color: @footer-text-primary;
+    }
+  }
+}
+
+/**
+ * 购物车列表
+ */
+.cart-list {
+  width: 100%;
+  font-size: 13px;
+  td {
+    border: 1px solid mix(white, gray, 80%);
+  }
+  .thumb-list {
+    position: relative;
+    top: 3px;
+    padding: 0;
+    list-style-type: none;
+    li { display: block; float: left; margin-right: 9px } 
+  }
+
+  p {
+    line-height: 6px;
+    vertical-align: text-top;
+  }
+}
+
+/**
+ * 按钮样式
+ */
+
+.btn {
+  display: block;
+  height: 40px;
+  width: 175px;
+  line-height: 40px;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  .border-radius(5px);
+  .inner-shadow(0, 0, 2, 0, 20%);
+  .text-shadow();
+
+  border: 1px solid #d1d1d1;
+
+  &.btn-primary {
+    background-color: @button-primary;
+    color: @button-text-primary;
+    .inner-light(0, 2px, 10px, 0, 30%);
+    &:hover {
+      background-color: mix(@button-primary, white, 95%);
+    }
+  }
+  &.btn-secondary {
+    background-color: @button-secondary;
+    color: @button-text-secondary;
+    &:hover {
+      background-color: mix(@button-secondary, black, 95%);
+    }
+  }
+}
+
+/**
+ *  伪分割线
+ */
+div.dbl-divider:before, div.dbl-divider:after {
+  content: '';
+  height: 2px;
+  width: 100%;
+  display: block;
+  background-color: mix(gray, white, 10%);
+}
+div.dbl-divider:before {
+  position: absolute;
+  top: -3px;
+}
+div.dbl-divider:after {
+  position: absolute;
+  bottom: -3px;
+}
+div.dbl-divider {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  z-index: -9999;
+}
+
+/**
+ * chkdliv = checkout-delivery
+ */
+.chkdliv {
+  position: relative;
+
+  .status-list {
+    display: inline-block;
+    padding: 0;
+
+  }
+}
